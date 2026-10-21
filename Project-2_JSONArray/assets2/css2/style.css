@@ -1,0 +1,31 @@
+body {
+    background-color: #18181b;
+}
+.card {
+    background-color: #27272a;
+}
+.card-text {
+    color: #e4e4e7;
+}
+.card-title {
+    color: #ffffff;
+}
+.badge {
+    color: #38bdf8;
+}
+.h1 {
+    color: #ffffff;
+    font-weight: 800;
+    letter-spacing: 1px;
+    text-shadow: 0 0 15px rgba(56, 189, 248, 0.4);
+}
+.card {
+    background-color: #212529;
+    color: #e4e4e7;
+    border: 1px solid #374151;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(56, 189, 248, 0.2) !important;
+}
