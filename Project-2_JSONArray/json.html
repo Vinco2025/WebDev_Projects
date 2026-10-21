@@ -12,13 +12,14 @@
 <body>
     <template id="character-card-template">
         <div class="card h-100 shadow-sm">
+            <img class="card-img-top" src="" alt="" style="height: 250px; object-fit: cover;">
             <div class="card-body">
                 <div class="d-flex justify-content-between align-items-center mb-2">
-                    <div class="badge bg-primary"></div>
+                    <div class="badge"></div>
                     <div class="text-muted small"></div>
                 </div>
-                <div class="card-title h5 mb-2"></div>
-                <div class="card-subtitle h6 mb-2 text-muted"></div>
+                <div class="card-title h5 mb-1"></div>
+                <div class="card-subtitle h6 mb-1 text-muted"></div>
                 <div class="card-text small"></div>
             </div>
         </div>
@@ -27,7 +28,7 @@
     <div class="container my-5">
         <div class="row mb-4">
             <div class="col text-center">
-                <div class="h1 fw-bold">Top 10 Jujutsu Kaisen Characters</div>
+                <div class="h1">Top 10 Jujutsu Kaisen Characters</div>
             </div>
         </div>
         <div class="row" id="character-container"></div>
@@ -41,72 +42,127 @@
                 "rank": 1,
                 "name": "Satoru Gojo",
                 "role": "Special-grade jujutsu sorcerer and teacher.",
-                "description": "Gojo is widely loved for his white hair, striking blue eyes, playful personality, and overwhelming power. His Limitless technique and Six Eyes make him one of the strongest modern sorcerers. Beneath his confident, teasing attitude, he cares deeply about his students and wants to reform the jujutsu world."
+                "description": "Gojo is widely loved for his white hair, striking blue eyes, playful personality, and overwhelming power. His Limitless technique and Six Eyes make him one of the strongest modern sorcerers. Beneath his confident, teasing attitude, he cares deeply about his students and wants to reform the jujutsu world.",
+                "images": [
+                    "assets2/images2/gojo.jpg",
+                    "assets2/images2/gojo2.jpg"
+                ],
             },
             {
                 "rank": 2,
                 "name": "Yuji Itadori",
                 "role": "Main protagonist.",
-                "description": "Yuji is a kind-hearted, athletic teenager who becomes involved in the dangerous world of curses after swallowing one of Sukuna's fingers. He is known for his physical strength, determination, empathy, and willingness to protect others. His struggle to understand death, responsibility, and what it means to save people makes him the emotional center of the story."
+                "description": "Yuji is a kind-hearted, athletic teenager who becomes involved in the dangerous world of curses after swallowing one of Sukuna's fingers. He is known for his physical strength, determination, empathy, and willingness to protect others. His struggle to understand death, responsibility, and what it means to save people makes him the emotional center of the story.",
+                "images": [
+                    "assets2/images2/yuji.jpg",
+                    "assets2/images2/yuji2.jpg"
+                ],
             },
             {
                 "rank": 3,
                 "name": "Megumi Fushiguro",
                 "role": "Jujutsu High student and Yuji's teammate.",
-                "description": "Megumi is a reserved, intelligent sorcerer who uses the Ten Shadows Technique to summon shikigami, including his Divine Dogs. Although he often appears cold or serious, he has a strong moral compass and is willing to risk his life for people he believes deserve to be saved."
+                "description": "Megumi is a reserved, intelligent sorcerer who uses the Ten Shadows Technique to summon shikigami, including his Divine Dogs. Although he often appears cold or serious, he has a strong moral compass and is willing to risk his life for people he believes deserve to be saved.",
+                "images": [
+                    "assets2/images2/megumi.jpg",
+                    "assets2/images2/megumi2.jpg"
+                ],
             },
             {
                 "rank": 4,
                 "name": "Suguru Geto",
                 "role": "Former jujutsu sorcerer and major antagonist.",
-                "description": "Geto was once Gojo's closest friend and a talented sorcerer. His Cursed Spirit Manipulation technique allows him to control cursed spirits. His changing beliefs about sorcerers and non-sorcerers lead him down a dark path, making his relationship with Gojo one of the series' most tragic storylines."
+                "description": "Geto was once Gojo's closest friend and a talented sorcerer. His Cursed Spirit Manipulation technique allows him to control cursed spirits. His changing beliefs about sorcerers and non-sorcerers lead him down a dark path, making his relationship with Gojo one of the series' most tragic storylines.",
+                "images": [
+                    "assets2/images2/geto.jpg",
+                    "assets2/images2/geto2.jpg"
+                ],
             },
             {
                 "rank": 5,
                 "name": "Naoya Zenin",
                 "role": "Member of the Zenin clan.",
-                "description": "Naoya is arrogant, elitist, and obsessed with strength and status. His Projection Sorcery allows him to move according to a sequence of predetermined frames, making him exceptionally fast in combat. Although he is a controversial character, his distinctive personality and role in the Zenin clan conflict earned him a surprisingly high poll ranking."
+                "description": "Naoya is arrogant, elitist, and obsessed with strength and status. His Projection Sorcery allows him to move according to a sequence of predetermined frames, making him exceptionally fast in combat. Although he is a controversial character, his distinctive personality and role in the Zenin clan conflict earned him a surprisingly high poll ranking.",
+                "images": [
+                    "assets2/images2/naoya.jpg",
+                    "assets2/images2/naoya2.jpg"
+                ],
             },
             {
                 "rank": 6,
                 "name": "Choso",
                 "role": "Death Painting Womb and later an important ally.",
-                "description": "Choso is a powerful half-human, half-curse hybrid who specializes in Blood Manipulation. Initially driven by loyalty to his brothers, he gradually reveals a deeply protective side. His fierce devotion to family and the emotional development of his character have made him a fan favorite."
+                "description": "Choso is a powerful half-human, half-curse hybrid who specializes in Blood Manipulation. Initially driven by loyalty to his brothers, he gradually reveals a deeply protective side. His fierce devotion to family and the emotional development of his character have made him a fan favorite.",
+                "images": [
+                    "assets2/images2/choso.jpg",
+                    "assets2/images2/choso2.jpg"
+                ],
             },
             {
                 "rank": 7,
                 "name": "Yuta Okkotsu",
                 "role": "Special-grade sorcerer and protagonist of Jujutsu Kaisen 0.",
-                "description": "Yuta begins as a shy and troubled teenager haunted by the cursed spirit of his childhood friend, Rika. Through training and experience, he becomes an exceptionally capable sorcerer. His immense cursed energy, compassion, and willingness to fight for those he loves make him one of the series' most compelling heroes."
+                "description": "Yuta begins as a shy and troubled teenager haunted by the cursed spirit of his childhood friend, Rika. Through training and experience, he becomes an exceptionally capable sorcerer. His immense cursed energy, compassion, and willingness to fight for those he loves make him one of the series' most compelling heroes.",
+                "images": [
+                    "assets2/images2/yuta.jpg",
+                    "assets2/images2/yuta2.jpg"
+                ],
             },
             {
                 "rank": 8,
                 "name": "Kento Nanami",
                 "role": "Grade 1 jujutsu sorcerer and mentor to Yuji.",
-                "description": "Nanami is a calm, professional sorcerer who treats jujutsu work like a job, complete with strict boundaries around overtime. His Ratio Technique creates weak points on opponents, allowing him to strike with precision. Fans appreciate his maturity, reliability, dry humor, and genuine concern for younger sorcerers."
+                "description": "Nanami is a calm, professional sorcerer who treats jujutsu work like a job, complete with strict boundaries around overtime. His Ratio Technique creates weak points on opponents, allowing him to strike with precision. Fans appreciate his maturity, reliability, dry humor, and genuine concern for younger sorcerers.",
+                "images": [
+                    "assets2/images2/nanami.jpg",
+                    "assets2/images2/nanami2.jpg"
+                ],
             },
             {
                 "rank": 9,
                 "name": "Ryomen Sukuna",
                 "role": "The King of Curses.",
-                "description": "Sukuna is a terrifyingly powerful and ruthless being whose presence threatens everyone around him. While sharing Yuji's body for much of the story, he remains driven by his own desires and contempt for weakness. His immense combat skill, sinister confidence, and unpredictable cruelty make him one of anime's most memorable antagonists."
+                "description": "Sukuna is a terrifyingly powerful and ruthless being whose presence threatens everyone around him. While sharing Yuji's body for much of the story, he remains driven by his own desires and contempt for weakness. His immense combat skill, sinister confidence, and unpredictable cruelty make him one of anime's most memorable antagonists.",
+                "images": [
+                    "assets2/images2/sukuna.jpg",
+                    "assets2/images2/sukuna2.jpg"
+                ],
             },
             {
                 "rank": 10,
                 "name": "Toji Fushiguro",
                 "role": "Assassin known as the Sorcerer Killer.",
-                "description": "Toji possesses no cursed energy because of his Heavenly Restriction, but his extraordinary physical abilities compensate for it. He relies on weapons, speed, tactical intelligence, and meticulous preparation to fight sorcerers. His connection to Megumi and his battles against powerful opponents have made him particularly popular among fans."
+                "description": "Toji possesses no cursed energy because of his Heavenly Restriction, but his extraordinary physical abilities compensate for it. He relies on weapons, speed, tactical intelligence, and meticulous preparation to fight sorcerers. His connection to Megumi and his battles against powerful opponents have made him particularly popular among fans.",
+                "images": [
+                    "assets2/images2/toji.jpg",
+                    "assets2/images2/toji2.jpg"
+                ],
             }
         ];
 
         const container = document.getElementById('character-container');
         const cardTemplate = document.getElementById('character-card-template');
 
-        characters.forEach(char => {
+        characters.forEach((char, index) => {
             const col = document.createElement('div');
             col.className = 'col-md-4 mb-4';
 
             const card = cardTemplate.content.firstElementChild.cloneNode(true);
+
+            const img = card.querySelector('.card-img-top');
+            if (img && char.images && char.images.length > 0) {
+                const storageKey = `char_img_index_${index}`;
+
+                let currentIndex = parseInt(localStorage.getItem(storageKey)) || 0;
+
+                img.src = char.images[currentIndex];
+                img.alt = char.name;
+
+                currentIndex = (currentIndex + 1) % char.images.length;
+
+                localStorage.setItem(storageKey, currentIndex);
+            }
+
             card.querySelector('.badge').textContent = `Rank #${char.rank}`;
             card.querySelector('.card-title').textContent = char.name;
             card.querySelector('.card-subtitle').textContent = char.role;
