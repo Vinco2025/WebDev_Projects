@@ -9,105 +9,7 @@
         integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <link rel="icon" type="image/svg+xml" href="https://cdn.jsdelivr.net/gh/glincker/thesvg@main/public/icons/valorant/default.svg">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,700;0,900;1,900&display=swap" rel="stylesheet">
-    <style>
-        :root {
-            --val-red: #b11522;
-            --val-dark: #0F1923;
-            --val-card-bg: #1F2326;
-            --val-text-light: #ECE8E1;
-        }
-        body {
-            background-color: var(--val-dark);
-            color: var(--val-text-light);
-            font-family: 'Montserrat', sans-serif;
-            min-height: 100vh;
-        }
-        .val-header {
-            background-color: var(--val-red);
-            border-bottom: 3px solid #000;
-        }
-        .val-title {
-            font-weight: 900;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-        }
-        .agent-card {
-            background-color: var(--val-card-bg);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 8px;
-            transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
-            cursor: pointer;
-            overflow: hidden;
-            height: 100%;
-        }
-        .agent-card:hover {
-            transform: translateY(-5px);
-            border-color: var(--val-red);
-            box-shadow: 0 10px 20px rgba(255, 70, 85, 0.25);
-        }
-        .agent-img-wrapper {
-            position: relative;
-            background: radial-gradient(circle, rgba(255, 70, 85, 0.2) 0%, rgba(15, 25, 35, 0.9) 100%);
-            height: 220px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            overflow: hidden;
-        }
-        .agent-portrait {
-            height: 100%;
-            object-fit: contain;
-            transition: transform 0.3s ease;
-        }
-        .agent-card:hover .agent-portrait {
-            transform: scale(1.08);
-        }
-        .role-badge {
-            background-color: rgba(0, 0, 0, 0.6);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            font-size: 0.8rem;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-        .page-link {
-            background-color: var(--val-card-bg);
-            color: var(--val-text-light);
-            border: 1px solid rgba(255, 255, 255, 0.15);
-            font-weight: 700;
-            cursor: pointer;
-        }
-        .page-link:hover {
-            background-color: var(--val-red);
-            color: #fff;
-            border-color: var(--val-red);
-        }
-        .page-item.disabled .page-link {
-            background-color: #15191d;
-            color: #555;
-            border-color: rgba(255, 255, 255, 0.05);
-        }
-        .form-select {
-            background-color: var(--val-card-bg);
-            color: var(--val-text-light);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-        }
-        .form-select:focus {
-            background-color: var(--val-card-bg);
-            color: var(--val-text-light);
-            border-color: var(--val-red);
-            box-shadow: 0 0 0 0.25rem rgba(255, 70, 85, 0.25);
-        }
-        .ability-box {
-            background-color: rgba(255, 255, 255, 0.05);
-            border-left: 3px solid var(--val-red);
-            border-radius: 4px;
-        }
-        .modal-content {
-            background-color: var(--val-card-bg);
-            color: var(--val-text-light);
-            border: 1px solid var(--val-red);
-        }
-    </style>
+    <link rel="stylesheet" href="assets3/css3/style.css">
 </head>
 
 <body>
@@ -180,7 +82,7 @@
         </div>
     </div>
 
-    <div class="modal fade" id="agentModal" tabindex="-1" aria-labelledby="agentModalLabel" aria-hidden="false">
+    <div class="modal fade" id="agentModal" tabindex="-1" aria-labelledby="agentModalLabel">
         <div class="modal-dialog modal-lg modal-dialog-centered">
             <div class="modal-content">
                 <div class="modal-header border-bottom border-secondary">
@@ -376,6 +278,15 @@
             }
 
             agentModal.show();
+        }
+
+        const agentModalEl = document.getElementById('agentModal');
+        if (agentModalEl) {
+            agentModalEl.addEventListener('hide.bs.modal', function () {
+                if (document.activeElement instanceof HTMLElement) {
+                    document.activeElement.blur();
+                }
+            });
         }
 
         getAgents();
