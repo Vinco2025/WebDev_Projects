@@ -1,5 +1,5 @@
 :root {
-    --val-red: #b11522;
+    --val-red: #9f1621;
     --val-dark: #0F1923;
     --val-card-bg: #1F2326;
     --val-text-light: #ECE8E1;
@@ -9,6 +9,46 @@ body {
     color: var(--val-text-light);
     font-family: 'Montserrat', sans-serif;
     min-height: 100vh;
+}
+.nav-item {
+    position: relative;
+    text-decoration: none;
+    color: #E5E7EB; 
+    transition: color 0.3s ease, transform 0.2s ease;
+    cursor: pointer;
+    overflow: visible;
+    opacity: 0;
+    transform: translateY(-10px);
+    animation: fadeDown 0.6s ease forwards;
+}
+.nav-item li:nth-child(1) { animation-delay: 0.35s; }
+.nav-item li:nth-child(2) { animation-delay: 0.45s; }
+.nav-item li:nth-child(3) { animation-delay: 0.55s; }
+.nav-item li:nth-child(4) { animation-delay: 0.65s; }
+.nav-item li:nth-child(5) { animation-delay: 0.75s; }
+@keyframes fadeDown {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+.nav-item a::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -5px;
+    width: 0;
+    height: 3px;
+    background: linear-gradient(90deg, #FF4655 35%, #FF7882 100%);
+    box-shadow: 0 0 10px rgba(255, 70, 85, 0.8);
+    transition: width 0.3s ease;
+}
+.nav-item a:hover::after {
+    width: 100%;
+}
+.nav-item a:hover {
+    transform: translateY(-2px);
+    color: #FF4655;
 }
 .val-header {
     background-color: var(--val-red);
@@ -78,6 +118,10 @@ body {
     background-color: var(--val-card-bg);
     color: var(--val-text-light);
     border: 1px solid rgba(255, 255, 255, 0.2);
+    font-weight: 600;
+}
+.form-select option {
+    font-weight: 600;
 }
 .form-select:focus {
     background-color: var(--val-card-bg);
