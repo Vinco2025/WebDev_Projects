@@ -114,33 +114,6 @@
         </div>
     </div>
 
-    <div class="modal fade" id="agentModal" tabindex="-1" aria-labelledby="agentModalLabel">
-        <div class="modal-dialog modal-lg modal-dialog-centered">
-            <div class="modal-content">
-                <div class="modal-header border-bottom border-secondary">
-                    <h5 class="modal-title fw-bold text-uppercase" id="modalAgentName">Agent Name</h5>
-                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <div class="row g-4">
-                        <div class="col-12 col-md-5 text-center">
-                            <img id="modalAgentFull" src="" class="img-fluid rounded mb-3" alt="Full Portrait" draggable="false" style="height: 350px; width: auto;">
-                            <div id="modalRoleBadge" class="badge bg-danger fs-6 px-3 py-2 text-uppercase">Role</div>
-                        </div>
-                        <div class="col-12 col-md-7">
-                            <h6 class="text-danger fw-bold text-uppercase">Biography</h6>
-                            <p id="modalAgentDesc" class="small text-light leading-relaxed">Agent description here.</p>
-                            
-                            <h6 class="text-danger fw-bold text-uppercase mt-4">Special Abilities</h6>
-                            <div id="modalAbilities" class="d-flex flex-column gap-2">
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
         crossorigin="anonymous"></script>
@@ -164,7 +137,6 @@
         const elCurrentPage = document.getElementById("currentPage");
         const elBtnPrev = document.getElementById("btnPrev");
         const elBtnNext = document.getElementById("btnNext");
-        const agentModal = new bootstrap.Modal(document.getElementById('agentModal'));
 
         function capitalize(str) {
             if (!str) return '';
@@ -206,9 +178,16 @@
             } catch (error) {
                 console.error("Error fetching Valorant agents:", error);
                 elParent.innerHTML = `
-                    <div class="col-12 text-center text-danger py-5">
-                        <h4>Failed to load agent roster!</h4>
-                        <p class="text-secondary">Please check your network connection and try again.</p>
+                    <div class="col-12 col-md-6 col-lg-3 mb-4">
+                        <div class="card shadow-sm bg-dark text-white border-secondary h-100 d-flex flex-column justify-content-between p-3">
+                            <img src="${agent.displayIcon}" class="card-img-top" alt="${agent.displayName}" style="height: 200px; object-fit: contain;">
+                            <div class="card-body text-center">
+                                <h5 class="card-title fw-bold text-danger">${agent.displayName}</h5>
+                                <p class="card-text small text-secondary">${agent.role ? agent.role.displayName : 'Unknown Role'}</p>
+                                <!-- Links to viewagent.html carrying the specific agent's UUID -->
+                                <a href="viewagent.html?uuid=${agent.uuid}" class="btn btn-danger btn-sm w-100 mt-2">View Info</a>
+                            </div>
+                        </div>
                     </div>
                 `;
             }
@@ -247,7 +226,7 @@
 
                 elParent.innerHTML += `
                     <div class="col-12 col-sm-6 col-lg-3">
-                        <div class="card agent-card p-2" onclick="openAgentModal('${agent.uuid}')" style="cursor: pointer; background-color: #1F2326; border: 1px solid #323A40;">
+                        <div class="card agent-card p-2 h-100" style="background-color: #1F2326; border: 1px solid #323A40;">
                             <div class="agent-img-wrapper rounded bg-secondary bg-opacity-10 text-center py-2">
                                 <img class="agent-portrait img-fluid" draggable="false" src="${portrait}" alt="${name}" style="height: 180px; object-fit: contain;" onerror="this.src='https://placehold.co/200x200/1F2326/FF4655?text=No+Image'">
                             </div>
@@ -262,7 +241,7 @@
                                         ${description}
                                     </p>
                                 </div>
-                                <button class="btn btn-sm btn-outline-danger w-100 mt-3 text-uppercase fw-bold">View Specs</button>
+                                <a href="viewagent.html?uuid=${agent.uuid}" class="btn btn-sm btn-outline-danger w-100 mt-3 text-uppercase fw-bold text-decoration-none">View Information</a>
                             </div>
                         </div>
                     </div>
@@ -473,48 +452,6 @@
                 page++;
                 renderPage();
             }
-        }
-
-        function openAgentModal(uuid) {
-            const agent = allAgents.find(a => a.uuid === uuid);
-            if (!agent) return;
-
-            document.getElementById('modalAgentName').innerText = agent.displayName;
-            document.getElementById('modalAgentFull').src = agent.fullPortrait || agent.displayIcon;
-            document.getElementById('modalAgentDesc').innerText = agent.description;
-            document.getElementById('modalRoleBadge').innerText = agent.role ? agent.role.displayName : 'Unknown';
-
-            const abilitiesContainer = document.getElementById('modalAbilities');
-            abilitiesContainer.innerHTML = '';
-
-            if (agent.abilities && agent.abilities.length > 0) {
-                agent.abilities.forEach(ability => {
-                    if (ability.displayName && ability.description) {
-                        abilitiesContainer.innerHTML += `
-                            <div class="ability-box p-2 d-flex align-items-start gap-2 bg-dark rounded border border-secondary">
-                                ${ability.displayIcon ? `<img src="${ability.displayIcon}" width="30" height="30" class="mt-1" style="filter: brightness(0) invert(1);" alt="${ability.displayName}">` : ''}
-                                <div>
-                                    <div class="fw-bold text-white small">${ability.displayName}</div>
-                                    <div class="text-secondary" style="font-size: 0.75rem;">${ability.description}</div>
-                                </div>
-                            </div>
-                        `;
-                    }
-                });
-            } else {
-                abilitiesContainer.innerHTML = `<div class="text-muted small">No ability specifications found.</div>`;
-            }
-
-            agentModal.show();
-        }
-
-        const agentModalEl = document.getElementById('agentModal');
-        if (agentModalEl) {
-            agentModalEl.addEventListener('hide.bs.modal', function () {
-                if (document.activeElement instanceof HTMLElement) {
-                    document.activeElement.blur();
-                }
-            });
         }
 
         getAgents();
